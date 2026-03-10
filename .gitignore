@@ -1,8 +1,8 @@
 /.bundle/
-/.yardoc
-/_yardoc/
-/coverage/
 /doc/
+/log/*.log
 /pkg/
-/spec/reports/
 /tmp/
+*.gem
+/.env*
+/.lefthook-local.yml
