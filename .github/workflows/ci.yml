@@ -43,4 +43,9 @@ jobs:
       - name: Run tests
         env:
           RAILS_ENV: test
-        run: bundle exec rspec --no-error-on-pending
+        run: |
+          if find spec -name '*_spec.rb' 2>/dev/null | grep -q .; then
+            bundle exec rspec
+          else
+            echo "No spec files found, skipping."
+          fi
