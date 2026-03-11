@@ -9,6 +9,8 @@ gem "alba"
 gem "solid_queue"
 gem "sqlite3"
 
+gem "rubocop-rails-omakase", require: false
+
 group :test do
   gem "rspec-rails"
 end
