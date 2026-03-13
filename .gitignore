@@ -6,3 +6,6 @@
 *.gem
 /.env*
 /.lefthook-local.yml
+
+# Git worktrees
+.worktrees/
