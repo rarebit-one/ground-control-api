@@ -10,6 +10,8 @@ gem "solid_queue"
 gem "sqlite3"
 
 gem "rubocop-rails-omakase", require: false
+gem "brakeman", require: false
+gem "bundler-audit", require: false
 
 group :test do
   gem "rspec-rails"
