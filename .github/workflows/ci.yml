@@ -27,6 +27,10 @@ jobs:
           ruby-version: 3.4.4
           bundler-cache: true
 
+      - name: Security scan with Brakeman
+        run: bundle exec brakeman --no-pager --quiet
+      - name: Audit gem dependencies for CVEs (bundler-audit)
+        run: bundle exec bundler-audit check --update
       - name: Lint code for consistent style
         run: bundle exec rubocop -f github
 
