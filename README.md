@@ -2,13 +2,13 @@
 
 A headless JSON API Rails engine for managing Active Job queues, jobs, workers, and recurring tasks. Built on top of [mission_control-jobs](https://github.com/rails/mission_control-jobs) for the adapter and query layer.
 
-Use standalone for custom frontends, or as the foundation for [ground_control-inertia](https://github.com/rarebit-one/ground-control-inertia).
+Use standalone for custom frontends, or as the foundation for [ground_control-inertia](https://github.com/rarebit-one/ground_control-inertia).
 
 ## Installation
 
 ```ruby
 # Gemfile
-gem "ground_control-api", github: "rarebit-one/ground-control-api"
+gem "ground_control-api", github: "rarebit-one/ground_control-api"
 ```
 
 ## Setup
