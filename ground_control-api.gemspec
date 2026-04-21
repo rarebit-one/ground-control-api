@@ -11,14 +11,14 @@ Gem::Specification.new do |spec|
   spec.summary = "Headless JSON API for managing Active Job queues, jobs, workers, and recurring tasks"
   spec.description = "A Rails engine providing a JSON API layer on top of mission_control-jobs. " \
                      "Use standalone or as the foundation for ground_control-inertia."
-  spec.homepage = "https://github.com/rarebit-one/ground-control-api"
+  spec.homepage = "https://github.com/rarebit-one/ground_control-api"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.2.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/rarebit-one/ground-control-api"
-  spec.metadata["changelog_uri"] = "https://github.com/rarebit-one/ground-control-api/blob/main/CHANGELOG.md"
-  spec.metadata["bug_tracker_uri"] = "https://github.com/rarebit-one/ground-control-api/issues"
+  spec.metadata["source_code_uri"] = "https://github.com/rarebit-one/ground_control-api"
+  spec.metadata["changelog_uri"] = "https://github.com/rarebit-one/ground_control-api/blob/main/CHANGELOG.md"
+  spec.metadata["bug_tracker_uri"] = "https://github.com/rarebit-one/ground_control-api/issues"
 
   gemspec = File.basename(__FILE__)
   spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
