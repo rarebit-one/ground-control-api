@@ -33,5 +33,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "alba", ">= 3.0"
   spec.add_dependency "mission_control-jobs", ">= 0.6"
-  spec.add_dependency "rails", ">= 7.1"
+  spec.add_dependency "rails", ">= 8.0"
 end
