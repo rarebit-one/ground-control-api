@@ -5,55 +5,22 @@ on:
   push:
     branches: [ main ]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
-
 permissions:
   contents: read
   pull-requests: read
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@7372622e62b60b3cb750dcd2b9e32c247ffec26a # v1.302.0
-        with:
-          ruby-version: 3.4.4
-          bundler-cache: true
-
-      - name: Security scan with Brakeman
-        run: bundle exec brakeman --no-pager --quiet
-      - name: Audit gem dependencies for CVEs (bundler-audit)
-        run: bundle exec bundler-audit check --update
-      - name: Lint code for consistent style
-        run: bundle exec rubocop -f github
-
-  test:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@7372622e62b60b3cb750dcd2b9e32c247ffec26a # v1.302.0
-        with:
-          ruby-version: 3.4.4
-          bundler-cache: true
-
-      - name: Run tests
-        env:
-          RAILS_ENV: test
-        run: |
-          if find spec -name '*_spec.rb' 2>/dev/null | grep -q .; then
-            bundle exec rspec
-          else
-            echo "No spec files found, skipping."
-          fi
+  ci:
+    uses: rarebit-one/.github/.github/workflows/reusable-gem-ci.yml@v1
+    with:
+      ruby-versions: '["3.4.4"]'
+      lint-ruby-version: "3.4.4"
+      extra-lint-commands: |
+        bundle exec brakeman --no-pager --quiet
+        bundle exec bundler-audit check --update
+      test-command: |
+        if find spec -name '*_spec.rb' 2>/dev/null | grep -q .; then
+          bundle exec rspec
+        else
+          echo "No spec files found, skipping."
+        fi
