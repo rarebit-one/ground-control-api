@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- **BREAKING:** Dropped support for Ruby < 4.0. `required_ruby_version` is now `>= 4.0` (was `>= 3.2`). Hosts must upgrade to Ruby 4.0+ before bundling this version. CI tests all four published 4.0.x patches. Aligns with the org-wide Ruby 4 policy ([rarebit-one/standard_id#195](https://github.com/rarebit-one/standard_id/pull/195)).
 - **BREAKING:** Dropped support for Rails < 8.0. The `rails` constraint is now `>= 8.0` (was `>= 7.1`). Hosts on Rails 7.x must upgrade to Rails 8.0+ before bundling this version. Aligns with the org-wide policy of supporting Rails 8 and up.
 
 ## [0.1.0] - 2026-04-21

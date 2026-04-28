@@ -13,8 +13,9 @@ jobs:
   ci:
     uses: rarebit-one/.github/.github/workflows/reusable-gem-ci.yml@v1
     with:
-      ruby-versions: '["3.4.4"]'
-      lint-ruby-version: "3.4.4"
+      ruby-versions: '["4.0.0","4.0.1","4.0.2","4.0.3"]'
+      lint-ruby-version: "4.0.3"
+      lint-command: bundle exec rubocop --config .rubocop.yml -f github
       extra-lint-commands: |
         bundle exec brakeman --no-pager --quiet
         bundle exec bundler-audit check --update
